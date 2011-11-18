@@ -52,7 +52,6 @@ class LastfmLyricsController(BaseController):
            sr = mm_search(q_track=unicode(track.title), q_artist=unicode(track.artist.name))
            sr = filter(lambda x: x.lyrics_id != 0, sr)
            c.found_count = len(sr)
-           print c.found_count
            if c.found_count>0:
                lyricses = map(lambda x: x.lyrics(), sr[:2])
                lyricses = map(lambda x: u"%s \n%s (c)\nSource: MusiXmatch.com" % (x['lyrics_body'],x['lyrics_copyright']), lyricses)
