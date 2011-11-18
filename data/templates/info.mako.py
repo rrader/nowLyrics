@@ -3,9 +3,9 @@ from mako import runtime, filters, cache
 UNDEFINED = runtime.UNDEFINED
 __M_dict_builtin = dict
 __M_locals_builtin = locals
-_magic_number = 5
-_modified_time = 1321638497.20583
-_template_filename='/home/roma/Projects/lyrics_searcher/lyrics_searcher/templates/info.mako'
+_magic_number = 6
+_modified_time = 1321642502.2032919
+_template_filename='/srv/lastfm_lyrics/lyrics_searcher/templates/info.mako'
 _template_uri='/info.mako'
 _template_cache=cache.Cache(__name__, _modified_time)
 _source_encoding='utf-8'
