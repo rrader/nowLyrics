@@ -6,7 +6,7 @@
 </%def>
 
 <p>
-Для пользователя ${c.luser} <br>
+Для пользователя <a href="http://last.fm/user/${c.luser}">${c.luser}</a> <br>
 Now playing: ${c.nowplaying}<br>
 <br>
 Найдено: ${c.found_count}<br>
