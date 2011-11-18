@@ -1,0 +1,3 @@
+include lyrics_searcher/config/deployment.ini_tmpl
+recursive-include lyrics_searcher/public *
+recursive-include lyrics_searcher/templates *
