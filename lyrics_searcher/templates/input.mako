@@ -11,4 +11,6 @@
 Username on Last.FM: <input type="text" name="user">
                <input type="submit" name="submit" value="Submit" />
 </form>
+<br>
+
 </p>

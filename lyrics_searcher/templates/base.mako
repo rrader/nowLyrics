@@ -9,8 +9,8 @@
     <meta name="author" content="Roman Rader (Antigluk)" />
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     ${self.head_tags()}
-<!-- Place this tag in your head or just before your close body tag -->
-<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
   </head>
   <body>
     <H1><a href="/"><font color="#002244">nowLyrics</font></a> <g:plusone annotation="inline" href="http://nowlyrics.pp.ua/"></g:plusone></H1>

@@ -8,6 +8,7 @@
 <p>
 Для пользователя <a href="http://last.fm/user/${c.luser}">${c.luser}</a> <br>
 Now playing: ${c.nowplaying}<br>
+
 <br>
 Найдено: ${c.found_count}<br>
 % if c.found_count>0:
