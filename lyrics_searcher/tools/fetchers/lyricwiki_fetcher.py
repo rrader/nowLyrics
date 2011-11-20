@@ -1,8 +1,6 @@
 # -*- coding:utf8 -*-
 
 from BaseFetcher import BaseFetcher
-import lyricwiki
-from lyrics_searcher.tools.LyricWiki import LyricWiki_services
 from grab import Grab
 import html2text
 import urllib
