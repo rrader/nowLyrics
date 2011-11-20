@@ -8,7 +8,7 @@
 <p>
 Для пользователя <a href="http://last.fm/user/${c.luser}">${c.luser}</a> <br>
 Now playing: ${c.nowplaying}<br>
-
+</p>
 <br>
 Найдено: ${c.found_count}<br>
 <table border="0">
@@ -38,10 +38,11 @@ ${current_lyrics}
 % if c.trans_count>0:
 <td valign=top>
 % for current_translate in c.trans:
-<a href="${current_translate}">Перевод ${c.nowplaying}</a>
+<a href="${current_translate[0]}">Перевод на ${current_translate[1]}</a>
 <br>
 % endfor
 </td>
 % endif
 </tr>
+</table>
 </p>

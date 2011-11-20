@@ -7,9 +7,10 @@ import urllib
 
 class Fetcher(BaseFetcher):
     def _do_fetch(self, title, artist):
-        g = Grab()
-        request = 'site:amalgama-lab.com "%s" "%s"' % (artist, title)
-        search_response = g.go("http://www.google.com/search?q=%s" % urllib.quote(request)).body
+        g = Grab(log_file="/home/roma/t.html")
+        request = "http://www.google.com/search?q=%s" % urllib.quote('site:amalgama-lab.com "%s" "%s"' % (artist, title))
+        print request
+        search_response = g.go(request).body
         if search_response.find("yellow_warning.gif") != -1:
             return []
         x1 = search_response.find("http://www.amalgama-lab.com/songs/")
@@ -20,4 +21,4 @@ class Fetcher(BaseFetcher):
 #        text = g.go(link).body
 #        x1 = text.find("Все переводы автора")
 #        x1 = text.find('class="text"', x1)+13
-        return [ link ]
+        return [ (link, "amalgama-lab.com") ]
