@@ -11,6 +11,7 @@ class BaseFetcher(object):
         pass
     
     def fetch(self, title, artist):
+        #print type(self)
         lyrics = self._do_fetch(title, artist)
         if (lyrics is None) or (len(lyrics) == 0):
             if self.next is not None:

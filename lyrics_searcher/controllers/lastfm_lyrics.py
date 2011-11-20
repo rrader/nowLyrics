@@ -45,25 +45,24 @@ class LastfmLyricsController(BaseController):
            last_played = make_track_text(track) # проверить на [] или вообще есть
            np = "no now_playing, but last played: %s" % (last_played)
        c.nowplaying = np
-       try:
-           if track is not None:
-               sr = []
-               title = track.title.encode('utf-8')
-               artist = track.artist.name.encode('utf-8')
-               try:
-                   sr = get_lyrics(title, artist)
-               except LyricsNotFetched:
-                   pass
-               tr = []
-               try:
-                   tr = get_translations(title, artist)
-               except TranslationsNotFetched:
-                   pass
-               c.found_count = len(sr)
-               c.lyricses = sr
-               c.trans_count = len(tr)
-               c.trans = tr
-       finally:
+       if track is not None:
+           sr = []
+           title = track.title.encode('utf-8')
+           artist = track.artist.name.encode('utf-8')
+           try:
+               sr = get_lyrics(title, artist)
+           except LyricsNotFetched:
+               pass
+           tr = []
+           try:
+               tr = get_translations(title, artist)
+           except TranslationsNotFetched:
+               pass
+           c.found_count = len(sr)
+           c.lyricses = sr
+           c.trans_count = len(tr)
+           c.trans = tr
+       else:
            c.found_count = 0
            c.trans_count = 0
        return render('/info.mako')

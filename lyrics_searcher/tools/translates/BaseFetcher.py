@@ -14,6 +14,7 @@ class BaseFetcher(object):
         pass
     
     def fetch(self, title, artist):
+        #print type(self)
         translates = self._do_fetch(title, artist)
         if (translates is None) or (len(translates) == 0):
             if self.next is not None:
