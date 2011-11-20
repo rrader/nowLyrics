@@ -7,7 +7,7 @@ import urllib
 
 class Fetcher(BaseFetcher):
     def _do_fetch(self, title, artist):
-        g = Grab(log_file="/home/roma/t.html")
+        g = Grab()
         request = "http://www.google.com/search?q=%s" % urllib.quote('site:amalgama-lab.com "%s" "%s"' % (artist, title))
         print request
         search_response = g.go(request).body
