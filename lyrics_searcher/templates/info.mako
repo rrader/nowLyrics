@@ -11,6 +11,17 @@ Now playing: ${c.nowplaying}<br>
 
 <br>
 Найдено: ${c.found_count}<br>
+<table border="0">
+<tr>
+
+<%
+  if c.trans_count>0:
+    w = "70%"
+  else:
+    w = "100%"
+%>
+
+<td width=${w} valign=top>
 % if c.found_count>0:
 
 <ol>
@@ -22,4 +33,15 @@ ${current_lyrics}
 % endfor
 </ol>
 % endif
+</td>
+
+% if c.trans_count>0:
+<td valign=top>
+% for current_translate in c.trans:
+<a href="${current_translate}">Перевод ${c.nowplaying}</a>
+<br>
+% endfor
+</td>
+% endif
+</tr>
 </p>

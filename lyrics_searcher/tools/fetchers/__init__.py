@@ -9,4 +9,4 @@ def get_lyrics(title, artist):
     fetchers_chain = musixmatch_fetcher.Fetcher(None)
     fetchers_chain = nashe_fetcher.Fetcher(fetchers_chain)
     fetchers_chain = lyricwiki_fetcher.Fetcher(fetchers_chain)
-    return fetchers_chain.fetch(title.encode('utf-8'), artist.encode('utf-8'))
+    return fetchers_chain.fetch(title, artist)

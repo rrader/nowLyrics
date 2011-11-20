@@ -10,7 +10,9 @@ from pylons.controllers.util import abort, redirect
 
 from lyrics_searcher.lib.base import BaseController, render
 import pylast
-from lyrics_searcher.tools.fetchers import get_lyrics, NotFetched
+from lyrics_searcher.tools.fetchers import get_lyrics, NotFetched as LyricsNotFetched
+from lyrics_searcher.tools.translates import get_translations, NotFetched as TranslationsNotFetched
+
 
 log = logging.getLogger(__name__)
 
@@ -38,21 +40,29 @@ class LastfmLyricsController(BaseController):
        track = None
        track = luser.get_now_playing()
        np = make_track_text(track)
-       if np is None:
+       if track is None:
            track = luser.get_recent_tracks()[0].track
            last_played = make_track_text(track) # проверить на [] или вообще есть
            np = "no now_playing, but last played: %s" % (last_played)
        c.nowplaying = np
        if track is not None:
            sr = []
+           title = track.title.encode('utf-8')
+           artist = track.artist.name.encode('utf-8')
            try:
-               title = track.title
-               artist = track.artist.name
                sr = get_lyrics(title, artist)
-           except NotFetched:
+           except LyricsNotFetched:
+               pass
+           tr = []
+           try:
+               tr = get_translations(title, artist)
+           except TranslationsNotFetched:
                pass
            c.found_count = len(sr)
            c.lyricses = sr
+           c.trans_count = len(tr)
+           c.trans = tr
        else:
            c.found_count = 0
+           c.trans_count = 0
        return render('/info.mako')
