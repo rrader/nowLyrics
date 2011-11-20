@@ -10,9 +10,9 @@ from pylons.controllers.util import abort, redirect
 
 from lyrics_searcher.lib.base import BaseController, render
 import pylast
+from pylast import WSError
 from lyrics_searcher.tools.fetchers import get_lyrics, NotFetched as LyricsNotFetched
 from lyrics_searcher.tools.translates import get_translations, NotFetched as TranslationsNotFetched
-
 
 log = logging.getLogger(__name__)
 
@@ -38,7 +38,10 @@ class LastfmLyricsController(BaseController):
        luser = api.get_user(user)
        c.luser = user
        track = None
-       track = luser.get_now_playing()
+       try:
+           track = luser.get_now_playing()
+       except WSError:
+           return render('/error.mako')
        np = make_track_text(track)
        if track is None:
            track = luser.get_recent_tracks()[0].track
