@@ -8,7 +8,13 @@ import urllib
 class Fetcher(BaseFetcher):
     def _do_fetch(self, title, artist):
         g = Grab()
-        response = g.go("http://lyrics.wikia.com/%s:%s" % (urllib.quote(artist), urllib.quote(title))).body
+        search_response = g.go("http://www.google.com/search?q=%s" % urllib.quote("site:lyrics.wikia.com %s %s" % (artist, title))).body
+        x1 = search_response.find("http://lyrics.wikia.com/")
+        if x1 == -1:
+            return []
+        x2 = search_response.find(r'"',x1)
+        link = search_response[x1:x2].replace("&amp;","&")
+        response = g.go(link).body
         lyricbox = response.find("class='lyricbox")
         if lyricbox == -1:
             return []

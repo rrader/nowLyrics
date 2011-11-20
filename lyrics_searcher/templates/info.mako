@@ -11,17 +11,10 @@ Now playing: ${c.nowplaying}<br>
 </p>
 <br>
 Найдено: ${c.found_count}<br>
-<table border="0">
+<table border="0" width="100%">
 <tr>
 
-<%
-  if c.trans_count>0:
-    w = "70%"
-  else:
-    w = "100%"
-%>
-
-<td width=${w} valign=top>
+<td width="60%" valign=top>
 % if c.found_count>0:
 
 <ol>
@@ -33,16 +26,20 @@ ${current_lyrics}
 % endfor
 </ol>
 % endif
+<br>
+<a href="http://google.com/search?q=${c.lyrics_query}">Искать в Google</a><br>
+<a href="http://yandex.ru/yandsearch?text=${c.lyrics_query}">Искать в Yandex</a><br>
 </td>
 
-% if c.trans_count>0:
-<td valign=top>
+<td valign=top width="*">
 % for current_translate in c.trans:
 <a href="${current_translate[0]}">Перевод на ${current_translate[1]}</a>
 <br>
 % endfor
+<br>
+<a href="http://google.com/search?q=${c.trans_query}">Искать перевод в Google</a><br>
+<a href="http://yandex.ru/yandsearch?text=${c.trans_query}">Искать перевод в Yandex</a><br>
 </td>
-% endif
 </tr>
 </table>
 </p>

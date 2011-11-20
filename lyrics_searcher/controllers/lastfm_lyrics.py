@@ -13,6 +13,7 @@ import pylast
 from pylast import WSError
 from lyrics_searcher.tools.fetchers import get_lyrics, NotFetched as LyricsNotFetched
 from lyrics_searcher.tools.translates import get_translations, NotFetched as TranslationsNotFetched
+import urllib
 
 log = logging.getLogger(__name__)
 
@@ -68,4 +69,6 @@ class LastfmLyricsController(BaseController):
        else:
            c.found_count = 0
            c.trans_count = 0
+       c.lyrics_query = urllib.quote('"%s" "%s" lyrics' % (artist, title))
+       c.trans_query = urllib.quote('"%s" "%s" перевод' % (artist, title))
        return render('/info.mako')
