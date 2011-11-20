@@ -46,7 +46,9 @@ class LastfmLyricsController(BaseController):
        if track is not None:
            sr = []
            try:
-               sr = get_lyrics(unicode(track.title), unicode(track.artist.name))
+               title = track.title
+               artist = track.artist.name
+               sr = get_lyrics(title, artist)
            except NotFetched:
                pass
            c.found_count = len(sr)
