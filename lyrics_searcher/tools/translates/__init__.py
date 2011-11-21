@@ -9,5 +9,8 @@ fetchers = [lyrsense_fetcher.Fetcher(None), amalgamalab_fetcher.Fetcher(None)]
 def get_translations(title, artist):
     res = []
     for f in fetchers:
-        res = res + f.fetch(title, artist)
+        try:
+            res = res + f.fetch(title, artist)
+        except NotFetched:
+            pass
     return res
