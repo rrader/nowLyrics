@@ -62,6 +62,6 @@
 
 <div id="vk_like"></div>
 <script type="text/javascript">
-VK.Widgets.Like("vk_like", {type: "full"});
+VK.Widgets.Like("vk_like", {type: "full", pageUrl: "http://nowlyrics.pp.ua/"});
 </script>
 </%def>
