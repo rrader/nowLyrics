@@ -13,4 +13,5 @@ Username on Last.FM: <input type="text" name="user">
 </form>
 <br>
 
+${self.social()}
 </p>

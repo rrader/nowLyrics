@@ -29,6 +29,7 @@ ${current_lyrics}
 <br>
 <a href="http://google.com/search?q=${c.lyrics_query}">Искать в Google</a><br>
 <a href="http://yandex.ru/yandsearch?text=${c.lyrics_query}">Искать в Yandex</a><br>
+<br>
 </td>
 
 <td valign=top width="*">
@@ -39,6 +40,8 @@ ${current_lyrics}
 <br>
 <a href="http://google.com/search?q=${c.trans_query}">Искать перевод в Google</a><br>
 <a href="http://yandex.ru/yandsearch?text=${c.trans_query}">Искать перевод в Yandex</a><br>
+<br>
+${self.social()}
 </td>
 </tr>
 </table>

@@ -9,13 +9,34 @@
     <meta name="author" content="Roman Rader (Antigluk)" />
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     ${self.head_tags()}
-    
+
+    <!-- G+1 -->
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <!-- /G+1 -->
+        
+    <!-- Вконтакте -->
+    <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?45"></script>
+
+    <script type="text/javascript">
+      VK.init({apiId: 2694628, onlyWidgets: true});
+    </script>
+    <!-- /Вконтакте -->
   </head>
   <body>
-    <H1><a href="/"><font color="#002244">nowLyrics</font></a> <g:plusone annotation="inline" href="http://nowlyrics.pp.ua/"></g:plusone></H1>
+  
+<!-- facebook like -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- /facebook like -->
+
+    <H1><a href="/"><font color="#002244">nowLyrics</font></a></H1>
     ${self.body()}
-    
     <hr>
     Created by <a href="http://www.google.com/profiles/antigluk">Antigluk (c)</a>
     <script type="text/javascript">
@@ -33,3 +54,14 @@
     </script>
   </body>
 </html>
+
+<%def name="social()">
+<g:plusone annotation="inline" href="http://nowlyrics.pp.ua/"></g:plusone><br><br>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://nowplaying.pp.ua" data-text="Текст песни &quot;now playing&quot; на #lastfm !" data-count="horizontal" data-lang="ru">Твитнуть</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script><br><br>
+<div class="fb-like" data-href="http://nowlyrics.pp.ua" data-send="false" data-width="450" data-show-faces="true"></div><br><br>
+
+<div id="vk_like"></div>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like", {type: "full"});
+</script>
+</%def>
