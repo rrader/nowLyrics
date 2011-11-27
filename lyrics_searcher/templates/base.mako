@@ -57,7 +57,7 @@
 
 <%def name="social()">
 <g:plusone annotation="inline" href="http://nowlyrics.pp.ua/"></g:plusone><br><br>
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://nowplaying.pp.ua" data-text="Текст песни &quot;now playing&quot; на #lastfm !" data-count="horizontal" data-lang="ru">Твитнуть</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script><br><br>
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://nowlyrics.pp.ua" data-text="Ищи текст песни &quot;now playing&quot; на #lastfm с помощью nowLyrics!" data-count="horizontal" data-lang="ru">Твитнуть</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script><br><br>
 <div class="fb-like" data-href="http://nowlyrics.pp.ua" data-send="false" data-width="450" data-show-faces="true"></div><br><br>
 
 <div id="vk_like"></div>
