@@ -64,4 +64,10 @@
 <script type="text/javascript">
 VK.Widgets.Like("vk_like", {type: "full", pageUrl: "http://nowlyrics.pp.ua/"});
 </script>
+
+<!-- VK Widget -->
+<div id="vk_groups"></div>
+<script type="text/javascript">
+VK.Widgets.Group("vk_groups", {mode: 0, width: "200", height: "290"}, 32958049);
+</script>
 </%def>
