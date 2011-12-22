@@ -6,6 +6,9 @@ import html2text
 import urllib
 # за доп.плату - фетчер с изменениями. (live) убирать
 class Fetcher(BaseFetcher):
+    def __validcheck(self, l):
+        return not l.startswith("CTYPE html")
+
     def _do_fetch(self, title, artist):
         g = Grab()
         search_response = g.go("http://www.google.com/search?q=%s" % urllib.quote("site:www.lyrics78.com %s %s" % (artist, title))).body
@@ -19,5 +22,6 @@ class Fetcher(BaseFetcher):
         x2 = response.find("<h2>",x1)
         lyrics = html2text.html2text(response[x1:x2].decode("utf8")).replace("\n\n",'\n')
         sr = [ lyrics ]
+        sr = filter(self.__validcheck, sr)
         sr = map(lambda x: u"%s \nSource: www.lyrics78.com" % x, sr)
         return sr
