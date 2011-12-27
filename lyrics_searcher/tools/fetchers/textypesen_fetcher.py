@@ -15,8 +15,8 @@ class Fetcher(BaseFetcher):
         x2 = search_response.find(r'"',x1)
         link = search_response[x1:x2].replace("&amp;","&")
         response = g.go(link).body
-        x1 = response.find(">", response.find("article.jpg"))+1
-        x2 = response.find("<script",x1)
+        x1 = response.find(">", response.find("align=right"))+1
+        x2 = response.find("<table",x1)
         lyrics = html2text.html2text(response[x1:x2].decode("utf8")).replace("\n\n",'\n')
         sr = [ lyrics ]
         sr = map(lambda x: u"%s \nSource: textypesen.com.ua" % x, sr)
