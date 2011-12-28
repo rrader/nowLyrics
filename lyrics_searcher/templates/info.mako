@@ -45,4 +45,5 @@ ${self.social()}
 </td>
 </tr>
 </table>
+<small>${c.time}</small>
 </p>
